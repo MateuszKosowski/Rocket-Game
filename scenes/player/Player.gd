@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Win"):
-		complete_lvl()
+		complete_lvl(body.next_file_path)
 		
 	elif body.is_in_group("Lose"):
 		rocket_crash()
@@ -32,8 +32,8 @@ func rocket_crash() -> void:
 	print("BOOOM!")
 	get_tree().reload_current_scene()
 	
-func complete_lvl() -> void:
+func complete_lvl(next_level: String) -> void:
 	print("You win")
-	get_tree().quit()
+	get_tree().change_scene_to_file(next_level)
 	
 	

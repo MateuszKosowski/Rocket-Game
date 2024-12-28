@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnju5vntat0yo"]
+[gd_scene load_steps=10 format=3 uid="uid://dnju5vntat0yo"]
 
+[ext_resource type="Script" path="res://scenes/lvl/LandField.gd" id="1_4qvsf"]
 [ext_resource type="PackedScene" uid="uid://cvkq7p6rvm1wm" path="res://scenes/player/player.tscn" id="1_tifit"]
+
+[sub_resource type="GDScript" id="GDScript_xrvwv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r344y"]
 sky_top_color = Color(0.353719, 0.584906, 1, 1)
@@ -33,6 +36,7 @@ backlight = Color(3.7542e-06, 0, 0.783205, 1)
 albedo_color = Color(1.51612e-06, 0.653202, 5.77569e-07, 1)
 
 [node name="Level" type="Node3D"]
+script = SubResource("GDScript_xrvwv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.395706, -0.795338, 0.459189, 7.67081e-08, 0.5, 0.866025, -0.918377, -0.342691, 0.197853, 15.747, 9.30759, 0.497363)
@@ -58,6 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, 0)
 use_collision = true
 size = Vector3(2, 1, 2)
 material = SubResource("StandardMaterial3D_gyp41")
+script = ExtResource("1_4qvsf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.972776, 0.231748, 0, -0.231748, 0.972776, 0, 7, 10)
