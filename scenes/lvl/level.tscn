@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnju5vntat0yo"]
+[gd_scene load_steps=8 format=3 uid="uid://dnju5vntat0yo"]
+
+[ext_resource type="PackedScene" uid="uid://cvkq7p6rvm1wm" path="res://scenes/player/player.tscn" id="1_tifit"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r344y"]
 sky_top_color = Color(0.353719, 0.584906, 1, 1)
@@ -18,12 +20,14 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02cok"]
-albedo_color = Color(0.385355, 0.295097, 0.119377, 1)
+albedo_color = Color(0.502292, 0.388903, 0.16884, 1)
 metallic = 1.0
 metallic_specular = 0.55
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60g8j"]
-albedo_color = Color(0.0406462, 0.301769, 1, 1)
+albedo_color = Color(0.00269263, 0.227332, 0.869013, 1)
+backlight_enabled = true
+backlight = Color(3.7542e-06, 0, 0.783205, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyp41"]
 albedo_color = Color(1.51612e-06, 0.653202, 5.77569e-07, 1)
@@ -40,7 +44,7 @@ environment = SubResource("Environment_84mvs")
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8, 0)
 use_collision = true
-size = Vector3(30, 8, 5)
+size = Vector3(40, 8, 5)
 material = SubResource("StandardMaterial3D_02cok")
 
 [node name="LaunchPad" type="CSGBox3D" parent="."]
@@ -57,3 +61,6 @@ material = SubResource("StandardMaterial3D_gyp41")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.972776, 0.231748, 0, -0.231748, 0.972776, 0, 7, 10)
+
+[node name="Player" parent="." instance=ExtResource("1_tifit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.7, 0)
