@@ -41,7 +41,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_84mvs")
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="." groups=["Lose"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8, 0)
 use_collision = true
 size = Vector3(40, 8, 5)
@@ -53,7 +53,7 @@ use_collision = true
 size = Vector3(2, 1, 2)
 material = SubResource("StandardMaterial3D_60g8j")
 
-[node name="LandField" type="CSGBox3D" parent="."]
+[node name="LandField" type="CSGBox3D" parent="." groups=["Win"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, 0)
 use_collision = true
 size = Vector3(2, 1, 2)
