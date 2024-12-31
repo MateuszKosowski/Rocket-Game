@@ -28,4 +28,4 @@ size = Vector3(1, 1, 5)
 material = SubResource("StandardMaterial3D_c3d5p")
 
 [node name="LandField" parent="." index="6"]
-next_file_path = "res://scenes/lvl/level_1.tscn"
+next_file_path = "res://scenes/lvl/level_3.tscn"

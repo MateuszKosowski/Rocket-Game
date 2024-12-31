@@ -5,6 +5,8 @@ extends RigidBody3D
 @export_range(100,2000) var thrust: int = 1000
 @export var torque_thrust: float = 100.0
 
+var is_transitioning: bool = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
@@ -21,19 +23,27 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Win"):
-		complete_lvl(body.next_file_path)
-		
-	elif body.is_in_group("Lose"):
-		rocket_crash()
-		
+	if is_transitioning == false:
+		if body.is_in_group("Win"):
+			complete_lvl(body.next_file_path)
+			
+		elif body.is_in_group("Lose"):
+			rocket_crash()
 		
 func rocket_crash() -> void:
 	print("BOOOM!")
-	get_tree().reload_current_scene()
+	
+	#Disables the fun _process
+	set_process(false)
+	is_transitioning = true
+	
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().reload_current_scene)
 	
 func complete_lvl(next_level: String) -> void:
 	print("You win")
-	get_tree().change_scene_to_file(next_level)
-	
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level))
 	
