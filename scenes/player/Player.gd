@@ -9,6 +9,7 @@ var is_transitioning: bool = false
 
 @onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
 @onready var win_audio: AudioStreamPlayer = $WinAudio
+@onready var fly_audio: AudioStreamPlayer3D = $FlyAudio
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,6 +17,11 @@ func _process(delta: float) -> void:
 	# Moving obj
 	if Input.is_action_pressed("Up"):
 		apply_central_force(basis.y * delta * thrust)
+		if fly_audio.playing == false:
+			fly_audio.play()
+	
+	else:
+		fly_audio.stop()
 		
 	if Input.is_action_pressed("Left"):
 		# moment obrotowty
@@ -36,6 +42,8 @@ func _on_body_entered(body: Node) -> void:
 func rocket_crash() -> void:
 	print("BOOOM!")
 	explosion_audio.play()
+	if fly_audio.playing == true:
+		fly_audio.stop()
 	
 	#Disables the fun _process
 	set_process(false)
@@ -48,6 +56,8 @@ func rocket_crash() -> void:
 func complete_lvl(next_level: String) -> void:
 	print("You win")
 	win_audio.play()
+	if fly_audio.playing == true:
+		fly_audio.stop()
 	is_transitioning = true
 	var tween = create_tween()
 	tween.tween_interval(1.5)
