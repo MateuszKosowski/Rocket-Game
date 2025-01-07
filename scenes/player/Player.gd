@@ -13,6 +13,8 @@ var is_transitioning: bool = false
 @onready var engine_particles: GPUParticles3D = $MainBooster
 @onready var right_engine_particles: GPUParticles3D = $RightBooster
 @onready var left_engine_particles: GPUParticles3D = $LeftBooster
+@onready var explosion_particles: GPUParticles3D = $ExplosionParticles
+@onready var success_particles: GPUParticles3D = $SuccessParticles
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,7 +59,7 @@ func rocket_crash() -> void:
 	explosion_audio.play()
 	if fly_audio.playing == true:
 		fly_audio.stop()
-		
+	explosion_particles.emitting = true
 	turn_off_booster()
 	
 	#Disables the fun _process
@@ -70,9 +72,10 @@ func rocket_crash() -> void:
 	
 func complete_lvl(next_level: String) -> void:
 	win_audio.play()
+	
 	if fly_audio.playing == true:
 		fly_audio.stop()
-		
+	success_particles.emitting = true
 	turn_off_booster()
 	
 	is_transitioning = true
