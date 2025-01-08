@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvkq7p6rvm1wm"]
+[gd_scene load_steps=25 format=3 uid="uid://cvkq7p6rvm1wm"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_aphc5"]
 [ext_resource type="AudioStream" uid="uid://ctlxbd6ipi53o" path="res://sounds/SFX - Death Explosion.ogg" id="2_cpkfe"]
@@ -12,6 +12,11 @@
 [ext_resource type="Material" uid="uid://sxjytw3tmxue" path="res://materials/rocket_black.tres" id="10_f7j55"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fgad4"]
+radius = 0.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b7gmx"]
+height = 0.6
+radius = 0.6
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2hvrk"]
 
@@ -74,6 +79,10 @@ script = ExtResource("1_aphc5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_fgad4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.688791, 0)
+shape = SubResource("CylinderShape3D_b7gmx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

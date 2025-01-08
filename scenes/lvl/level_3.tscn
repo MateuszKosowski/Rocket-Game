@@ -1,15 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buo15nodysbil"]
+[gd_scene load_steps=4 format=3 uid="uid://buo15nodysbil"]
 
 [ext_resource type="PackedScene" uid="uid://dnju5vntat0yo" path="res://scenes/lvl/level_base.tscn" id="1_v28gn"]
 [ext_resource type="PackedScene" uid="uid://dn2fofs5ub5sj" path="res://scenes/obstacle/moving_box.tscn" id="2_i3gcm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbot7"]
 albedo_color = Color(0.295867, 0.295867, 0.295866, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02cok"]
-albedo_color = Color(0.502292, 0.388903, 0.16884, 1)
-metallic = 1.0
-metallic_specular = 0.55
 
 [node name="Level" instance=ExtResource("1_v28gn")]
 
@@ -24,22 +19,22 @@ size = Vector3(41.1934, 8, 5)
 next_file_path = "res://scenes/lvl/level_1.tscn"
 
 [node name="Wall" type="CSGBox3D" parent="." index="7" groups=["Lose"]]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -17.454, 12.2287, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -17.454, 8.79007, 0)
 use_collision = true
-size = Vector3(24.0575, 5, 5)
+size = Vector3(17.1802, 5, 5)
 material = SubResource("StandardMaterial3D_hbot7")
 
 [node name="Wall2" type="CSGBox3D" parent="." index="8" groups=["Lose"]]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 21.2137, 12.2891, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 21.2137, 9.13524, 0)
+layers = 0
 use_collision = true
-size = Vector3(24.1782, 0.001, 5)
-material = SubResource("StandardMaterial3D_hbot7")
+size = Vector3(17.8705, 0.001, 5)
 
 [node name="Ceiling" type="CSGBox3D" parent="." index="9" groups=["Lose"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.649429, 28.3321, -0.026123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.649429, 17.7037, -0.026123)
+layers = 0
 use_collision = true
-size = Vector3(41.2185, 8, 5)
-material = SubResource("StandardMaterial3D_02cok")
+size = Vector3(41.2185, 0.812988, 5)
 
 [node name="MovingBox" parent="." index="10" instance=ExtResource("2_i3gcm")]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 3.89838, 1.85154, 0)

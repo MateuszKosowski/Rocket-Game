@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca8t7kpll6dg0"]
+[gd_scene load_steps=5 format=3 uid="uid://ca8t7kpll6dg0"]
 
 [ext_resource type="PackedScene" uid="uid://dnju5vntat0yo" path="res://scenes/lvl/level_base.tscn" id="1_cvc27"]
+[ext_resource type="PackedScene" uid="uid://dn2fofs5ub5sj" path="res://scenes/obstacle/moving_box.tscn" id="2_duono"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02cok"]
 albedo_color = Color(0.621939, 0.486195, 0.224284, 1)
@@ -15,17 +16,42 @@ albedo_color = Color(0.579254, 1.97336e-06, 3.85046e-07, 1)
 [node name="DirectionalLight3D" parent="." index="0"]
 transform = Transform3D(0.78526, -0.47878, 0.392602, 0.1094, 0.731394, 0.673123, -0.609425, -0.485626, 0.626713, 15.7496, 9.30759, 9.34906)
 
+[node name="Floor" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.8, 0)
+size = Vector3(44, 8, 5)
+
 [node name="Ceiling" type="CSGBox3D" parent="." index="3" groups=["Lose"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7729, 0)
+transform = Transform3D(1, 0, 0, 0, 0.995979, -0.0895896, 0, 0.0895896, 0.995979, 2, 13.7729, 0)
 use_collision = true
-size = Vector3(40, 8, 5)
+size = Vector3(44, 8, 5)
 material = SubResource("StandardMaterial3D_02cok")
 
 [node name="Box" type="CSGBox3D" parent="." index="4" groups=["Lose"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29628, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55271, 6.41939, 0)
 use_collision = true
 size = Vector3(1, 1, 5)
 material = SubResource("StandardMaterial3D_c3d5p")
 
 [node name="LandField" parent="." index="6"]
 next_file_path = "res://scenes/lvl/level_3.tscn"
+
+[node name="Camera3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.972776, 0.231748, 0, -0.231748, 0.972776, 0, 7.46768, 10.0636)
+
+[node name="Wall" type="CSGBox3D" parent="." index="9" groups=["Lose"]]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -20.461, 4.46827, 0)
+layers = 0
+use_collision = true
+size = Vector3(24.7684, 1, 5)
+material = SubResource("StandardMaterial3D_02cok")
+
+[node name="Wall2" type="CSGBox3D" parent="." index="10" groups=["Lose"]]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 23.9923, 4.46827, 0)
+layers = 0
+use_collision = true
+size = Vector3(24.7684, 0.001, 5)
+
+[node name="MovingBox" parent="." index="11" instance=ExtResource("2_duono")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.95579, 0)
+move_direction = Vector3(0, 4, 0)
+duration = 1.4
