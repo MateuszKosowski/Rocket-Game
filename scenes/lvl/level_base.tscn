@@ -23,7 +23,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02cok"]
-albedo_color = Color(0.502292, 0.388903, 0.16884, 1)
+albedo_color = Color(0.61267, 0.478579, 0.219705, 1)
 metallic = 1.0
 metallic_specular = 0.55
 
