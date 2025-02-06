@@ -7,9 +7,8 @@ albedo_color = Color(0.579254, 1.97336e-06, 3.85046e-07, 1)
 
 [node name="Level" instance=ExtResource("1_e1veh")]
 
-[node name="DirectionalLight3D" parent="." index="0"]
+[node name="DirectionalLight3D" parent="." index="1"]
 transform = Transform3D(0.993572, 0.0566016, -0.0980369, -0.0301304, 0.967012, 0.252943, 0.10912, -0.248363, 0.962501, -2.15919, 9.30759, 10.6589)
-light_energy = 0.821
 
 [node name="Floor" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29785, -3.8, 0)
