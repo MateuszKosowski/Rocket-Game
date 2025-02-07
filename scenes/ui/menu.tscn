@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://djg7h16vn1nc0"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu.gd" id="1_xy5m6"]
+[ext_resource type="Texture2D" uid="uid://dnrl8625k1o60" path="res://darkness.png" id="2_i2ne3"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xy5m6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i2ne3")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.0
+offset_top = 47.0
+offset_right = 204.0
+offset_bottom = 116.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "PROJECT ROCKET"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.5
+offset_right = 50.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

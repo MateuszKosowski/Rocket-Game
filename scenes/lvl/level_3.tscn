@@ -13,7 +13,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59668, -3.8, 0)
 size = Vector3(41.1934, 8, 5)
 
 [node name="LandField" parent="." index="4"]
-next_file_path = "res://scenes/lvl/level_1.tscn"
+next_file_path = "res://scenes/ui/win.tscn"
 
 [node name="MovingBox" parent="." index="7" instance=ExtResource("2_i3gcm")]
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 3.89838, 1.85154, 0)
