@@ -17,6 +17,7 @@ var is_dash_avaiable: bool = true
 @onready var fly_audio: AudioStreamPlayer3D = $FlyAudio
 @onready var dash_audio: AudioStreamPlayer3D = $DashAudio
 @onready var engine_particles: GPUParticles3D = $MainBooster
+@onready var dash_particles: GPUParticles3D = $DashBooster
 @onready var right_engine_particles: GPUParticles3D = $RightBooster
 @onready var left_engine_particles: GPUParticles3D = $LeftBooster
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
@@ -59,13 +60,13 @@ func start_dash() -> void:
 	#Make dash
 	apply_central_impulse(basis.y * dash_force)
 	dash_audio.play()
-	engine_particles.emitting = true
+	dash_particles.emitting = true
 	
 	#Wait 
 	await get_tree().create_timer(dash_duration).timeout
 	
 	dash_audio.stop()
-	engine_particles.emitting = false
+	dash_particles.emitting = false
 	
 	#Dash cooldown
 	await get_tree().create_timer(dash_cooldown).timeout

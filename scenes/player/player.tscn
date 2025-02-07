@@ -117,6 +117,10 @@ transform = Transform3D(0.88693, 0.461903, 0, -0.461903, 0.88693, 0, 0, 0, 1, -0
 
 [node name="SuccessParticles" parent="." instance=ExtResource("7_oooje")]
 
+[node name="DashBooster" parent="." instance=ExtResource("5_bvqwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+amount = 70
+
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 material_override = SubResource("StandardMaterial3D_ptr8k")
