@@ -1,0 +1,6 @@
+Maybe I'll add someday:
+- Fuel collection mechanism
+- Dash
+- Start menu
+- More levels
+- Other obstacles

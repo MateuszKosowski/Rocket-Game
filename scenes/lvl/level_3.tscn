@@ -5,7 +5,7 @@
 
 [node name="Level" instance=ExtResource("1_v28gn")]
 
-[node name="DirectionalLight3D" parent="." index="0"]
+[node name="DirectionalLight3D" parent="." index="1"]
 transform = Transform3D(0.997765, -0.0218087, 0.0631542, 0, 0.945228, 0.32641, -0.0668138, -0.32568, 0.943116, 7.6335, 4.92159, 7.62859)
 
 [node name="Floor" parent="." index="2"]
